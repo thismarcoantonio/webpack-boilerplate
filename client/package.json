@@ -1,0 +1,36 @@
+{
+  "name": "webpack-boilerplate-client",
+  "version": "1.0.0",
+  "description": "Webpack boilerplate for client side apps",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thismarcoantonio/webpack-boilerplate.git"
+  },
+  "keywords": [
+    "webpack",
+    "boilerplate",
+    "client"
+  ],
+  "author": "thismarcoantonio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thismarcoantonio/webpack-boilerplate/issues"
+  },
+  "homepage": "https://github.com/thismarcoantonio/webpack-boilerplate#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.28.11",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
