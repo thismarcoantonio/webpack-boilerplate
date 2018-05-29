@@ -1,4 +1,5 @@
 import path from 'path'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 export default {
   entry: './src/app.js',
@@ -16,8 +17,8 @@ export default {
     contentBase: path.resolve(__dirname, 'dist'),
     compress: true,
     port: process.env.PORT || 3000
-  }
-  // plugins: [
-  //   new HtmlWebpackPlugin({ template: './src/index.'}/)
-  // ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin()
+  ]
 }
