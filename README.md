@@ -8,6 +8,8 @@ Ready for React.
 Ready for Amazon Lambda
 
 ## TODO:
-[x] Add basic config for client side
-[] Add HTML with webpack html plugin
-[] Create React support
+- [x] Add basic config for client side
+- [x] Add HTML with webpack html plugin
+- [x] SASS Support
+- [x] Basic ESLINT Support
+- [ ] React support
