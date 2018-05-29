@@ -12,4 +12,6 @@ Ready for Amazon Lambda
 - [x] Add HTML with webpack html plugin
 - [x] SASS Support
 - [x] Basic ESLINT Support
-- [ ] React support
+- [x] React support
+- [ ] PostCSS Config
+- [ ] HTML Custom Template
