@@ -29,6 +29,26 @@ export default {
           }
         ],
         exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+            publicPath: '/static/images'
+          }
+        },
+      },
+      {
+        test: /\.(eot|woff|ttf)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+            publicPath: '/static/fonts'
+          }
+        }
       }
     ]
   },
