@@ -1,14 +1,14 @@
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin'
-import autoprefixer from 'autoprefixer'
+import config from './config'
 const devMode = process.env.NODE_ENV === 'development'
 
 export default {
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   mode: devMode ? 'development' : 'production',
   module: {
@@ -38,7 +38,22 @@ export default {
     port: process.env.PORT || 3000
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      ...config,
+      template: 'index.html',
+      minify: { collapseWhitespace: true }
+    }),
     new MiniCSSExtractPlugin({ filename: 'style.css' })
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  }
 }

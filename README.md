@@ -14,4 +14,5 @@ Ready for Amazon Lambda
 - [x] Basic ESLINT Support
 - [x] React support
 - [x] PostCSS Config
-- [ ] HTML Custom Template
+- [x] HTML Custom Template
+- [ ] Add React Boilerplate and include libraries libraries (Router)
