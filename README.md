@@ -13,5 +13,5 @@ Ready for Amazon Lambda
 - [x] SASS Support
 - [x] Basic ESLINT Support
 - [x] React support
-- [ ] PostCSS Config
+- [x] PostCSS Config
 - [ ] HTML Custom Template
