@@ -1,5 +1,4 @@
-body {
-  background: linear-gradient(red, blue);
-  display: grid;
-  box-shadow: 3px 3px 3px rgba(0,0,0,.3);
-}
+@import './reset/reset';
+@import './components/app';
+@import './functions/styles';
+@import './partials/styles';

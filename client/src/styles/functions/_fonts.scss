@@ -1,0 +1,6 @@
+$fonts: (
+);
+
+@each $font in $fonts {
+	@include font-face(nth($font, 1), '/static/fonts/#{nth($font, 2)}', nth($font, 3), nth($font, 4))
+}
