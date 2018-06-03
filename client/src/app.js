@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import './styles/main.scss'
 
 const App = () => (
-  <div>Main Application</div>
+  <div>Boilerplate </div>
 )
 
-render(<App />, document.body)
+render(<App />, document.getElementById('app'))

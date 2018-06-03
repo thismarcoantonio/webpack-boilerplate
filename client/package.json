@@ -1,6 +1,6 @@
 {
   "name": "webpack-boilerplate-client",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Webpack boilerplate for client side apps",
   "main": "./src/app.js",
   "scripts": {

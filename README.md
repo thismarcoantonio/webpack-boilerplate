@@ -16,4 +16,3 @@ Ready for Amazon Lambda
 - [x] PostCSS Config
 - [x] HTML Custom Template
 - [x] Add Sass Boilerplate
-- [ ] Add React Boilerplate and include libraries (Router)
