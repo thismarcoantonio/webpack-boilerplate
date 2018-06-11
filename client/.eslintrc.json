@@ -27,5 +27,6 @@
     "no-alert": "error",
     "eol-last": "error",
     "no-undef": "error"
-  }
+  },
+  "parser": "babel-eslint"
 }
