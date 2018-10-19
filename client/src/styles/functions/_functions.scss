@@ -1,36 +1,34 @@
-@function str-replace($string, $search, $replace: "") {
-	$index: str-index($string, $search);
-
-	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-	}
-
-	@return $string;
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
 }
 
-@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff ttf svg) {
-	$src: null;
+@function rem($size) {
+  $remsize: strip-unit($size) / 16;
+  @return #{$remsize}rem;
+}
 
-	$extmods: (
-		eot: "?",
-		svg: "#" + str-replace($name, " ", "_")
-	);
+@function vh($size, $bkp: 'xs') {
+  $sizes: (
+    'xs': 748,
+    'ph': 716,
+    'tv': 1004,
+    'th': 671,
+  );
 
-	$formats: (
-		otf: "opentype",
-		ttf: "truetype"
-	);
+  $vh: map-get($sizes, $bkp) * 0.01;
+  $vsize: (strip-unit($size) / $vh);
+  @return #{$vsize}vmax;
+}
 
-	@each $ext in $exts {
-		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
-	}
+@function vw($size, $bkp: 'xs') {
+  $sizes: (
+    'xs': 375,
+    'ph': 414,
+    'tv': 768,
+    'th': 1024,
+  );
 
-	@font-face {
-		font-family: quote($name);
-		font-style: $style;
-		font-weight: $weight;
-		src: $src;
-	}
+  $vw: map-get($sizes, $bkp) * 0.01;
+  $vsize: (strip-unit($size) / $vw);
+  @return #{$vsize}vmin;
 }

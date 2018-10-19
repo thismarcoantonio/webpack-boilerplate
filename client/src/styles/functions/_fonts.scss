@@ -1,6 +1,18 @@
 $fonts: (
 );
 
-@each $font in $fonts {
-	@include font-face(nth($font, 1), '/static/fonts/#{nth($font, 2)}', nth($font, 3), nth($font, 4))
+@mixin createFonts($fonts) {
+	@each $font in $fonts {
+		@font-face {
+			font-family: #{nth($font, 1)};
+			src: url('../../public/fonts/#{nth($font, 2)}.woff2') format('woff2'),
+				url('../../public/fonts/#{nth($font, 2)}.woff') format('woff'),
+				url('../../public/assets/fonts/#{nth($font, 2)}.eot') format('eot'),
+				url('../../public/assets/fonts/#{nth($font, 2)}.ttf') format('truetype');
+			font-weight: #{nth($font, 3)};
+			font-style: #{nth($font, 4)};
+		}
+	}
 }
+
+@include createFonts($fonts);
