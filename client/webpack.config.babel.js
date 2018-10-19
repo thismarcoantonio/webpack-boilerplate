@@ -1,19 +1,40 @@
-import path from 'path'
+import { resolve } from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin'
 import config from './config'
+
 const devMode = process.env.NODE_ENV === 'development'
 
 export default {
+  devtool: devMode ? 'cheap-module-eval-source-map' : null,
   entry: './src/app.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    path: resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js',
+    publicPath: '/'
+  },
+  resolve: {
+    alias: {
+      data: resolve(__dirname, 'src', 'data'),
+      components: resolve(__dirname, 'src', 'components'),
+      containers: resolve(__dirname, 'src', 'containers'),
+      app: resolve(__dirname, 'src')
+    }
+  },
+  stats: {
+    colors: true
   },
   mode: devMode ? 'development' : 'production',
   module: {
     rules: [
-      { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
+      {
+        test: /\.js$/,
+        use: [
+          'babel-loader',
+          'eslint-loader'
+        ],
+        exclude: /node_modules/
+      },
       {
         test: /\.scss$/,
         use: [
@@ -31,31 +52,31 @@ export default {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|jpeg)$/,
         use: {
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]',
-            publicPath: '/static/images'
+            publicPath: '/public/images/'
           }
-        },
+        }
       },
       {
-        test: /\.(eot|woff|ttf)$/,
+        test: /\.(eot|woff|ttf|woff2)$/,
         use: {
           loader: 'file-loader',
           options: {
-            name: '[path][name].[ext]',
-            publicPath: '/static/fonts'
+            name: '[path][name].[ext]'
           }
         }
       }
     ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
     compress: true,
-    port: process.env.PORT || 3000
+    historyApiFallback: true,
+    port: process.env.PORT || 3000,
+    contentBase: resolve(__dirname, 'public')
   },
   plugins: [
     new HtmlWebpackPlugin({
