@@ -4,9 +4,6 @@ Personal updated webpack build for client and server, ready for production.
 ## Client:
 Ready for React.
 
-## Server: 
-Ready for Amazon Lambda
-
 ## TODO:
 - [x] Add basic config for client side
 - [x] Add HTML with webpack html plugin
