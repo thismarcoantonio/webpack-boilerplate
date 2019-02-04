@@ -1,0 +1,39 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "quotes": ["error","single"],
+    "semi": ["error", "always"],
+    "default-case": "error",
+    "no-alert": "error",
+    "eol-last": "error",
+    "no-undef": "error",
+    "comma-dangle": "error",
+    "object-curly-spacing": ["error", "always"],
+    "no-trailing-spaces": "error",
+    "array-bracket-spacing": ["error", "never"],
+    "no-console": "warn",
+    "no-multi-spaces": "error",
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
+    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "no-const-assign": "error",
+    "no-var": "error",
+    "rest-spread-spacing": ["error", "never"]
+  },
+  "parser": "babel-eslint"
+}

@@ -5,11 +5,6 @@ Personal updated webpack build for client and server, ready for production.
 Ready for React.
 
 ## TODO:
-- [x] Add basic config for client side
-- [x] Add HTML with webpack html plugin
-- [x] SASS Support
-- [x] Basic ESLINT Support
-- [x] React support
-- [x] PostCSS Config
-- [x] HTML Custom Template
-- [x] Add Sass Boilerplate
+- [] Create a minimal react version in another branch;
+- [] Add SVG as component;
+- [] Create a minimal scss version in another branch;

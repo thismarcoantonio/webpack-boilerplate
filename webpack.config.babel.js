@@ -1,23 +1,21 @@
-import { resolve } from 'path'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import MiniCSSExtractPlugin from 'mini-css-extract-plugin'
-import config from './config'
+import { resolve } from 'path';
+import { HotModuleReplacementPlugin } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import config from './config';
+import Dotenv from 'dotenv-webpack';
 
-const devMode = process.env.NODE_ENV === 'development'
+const devMode = process.env.NODE_ENV === 'development';
 
 export default {
-  devtool: devMode ? 'cheap-module-eval-source-map' : null,
+  devtool: devMode ? 'cheap-module-eval-source-map' : false,
   entry: './src/app.js',
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
+    filename: '[name].[hash].js',
     publicPath: '/'
   },
   resolve: {
     alias: {
-      data: resolve(__dirname, 'src', 'data'),
-      components: resolve(__dirname, 'src', 'components'),
-      containers: resolve(__dirname, 'src', 'containers'),
       app: resolve(__dirname, 'src')
     }
   },
@@ -32,22 +30,6 @@ export default {
         use: [
           'babel-loader',
           'eslint-loader'
-        ],
-        exclude: /node_modules/
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          devMode ? 'style-loader' : MiniCSSExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: { minimize: true }
-          },
-          'postcss-loader',
-          {
-            loader: 'sass-loader',
-            options: { sourceMaps: true }
-          }
         ],
         exclude: /node_modules/
       },
@@ -76,7 +58,8 @@ export default {
     compress: true,
     historyApiFallback: true,
     port: process.env.PORT || 3000,
-    contentBase: resolve(__dirname, 'public')
+    contentBase: resolve(__dirname, 'public'),
+    hot: true
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -84,7 +67,8 @@ export default {
       template: 'index.html',
       minify: { collapseWhitespace: true }
     }),
-    new MiniCSSExtractPlugin({ filename: 'style.css' })
+    new HotModuleReplacementPlugin(),
+    new Dotenv()
   ],
   optimization: {
     splitChunks: {
@@ -97,4 +81,4 @@ export default {
       }
     }
   }
-}
+};
