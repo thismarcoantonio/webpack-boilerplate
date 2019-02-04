@@ -1,8 +1,0 @@
-{
-  "plugins": {
-    "autoprefixer": {
-      "flex": true,
-      "browsers": ">=1%, not IE <= 8"
-    }
-  }
-}
