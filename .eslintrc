@@ -5,7 +5,8 @@
     "node": true
   },
   "extends": [
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:react/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -14,6 +15,9 @@
     },
     "sourceType": "module"
   },
+  "plugins": [
+    "react"
+  ],
   "rules": {
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "quotes": ["error","single"],
@@ -28,12 +32,18 @@
     "array-bracket-spacing": ["error", "never"],
     "no-console": "warn",
     "no-multi-spaces": "error",
+    "react/jsx-indent": ["warn", 2],
     "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
     "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
     "arrow-spacing": ["error", { "before": true, "after": true }],
     "no-const-assign": "error",
     "no-var": "error",
     "rest-spread-spacing": ["error", "never"]
+  },
+  "settings": {
+    "react": {      
+      "version": "16.7.0"
+    }
   },
   "parser": "babel-eslint"
 }

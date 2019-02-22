@@ -5,6 +5,4 @@ Personal updated webpack build for client and server, ready for production.
 Ready for React.
 
 ## TODO:
-- [] Create a minimal react version in another branch;
-- [] Add SVG as component;
 - [] Create a minimal scss version in another branch;

@@ -16,7 +16,10 @@ export default {
   },
   resolve: {
     alias: {
-      app: resolve(__dirname, 'src')
+      app: resolve(__dirname, 'src'),
+      components: resolve(__dirname, 'src', 'components'),
+      utils: resolve(__dirname, 'src', 'utils'),
+      'react-dom': '@hot-loader/react-dom'
     }
   },
   stats: {
@@ -51,13 +54,17 @@ export default {
             name: '[path][name].[ext]'
           }
         }
+      },
+      {
+        test: /\.svg$/,
+        use: '@svgr/webpack'
       }
     ]
   },
   devServer: {
     compress: true,
     historyApiFallback: true,
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 5500,
     contentBase: resolve(__dirname, 'public'),
     hot: true
   },
